@@ -18,8 +18,8 @@ pip_cmd=$(command -v pip || command -v pip3)
 echo "Using pip command: $pip_cmd"
 
 # Install system-level dependencies
-apk update
-apk add libjpeg
+sudo yum install libjpeg-turbo-devel
+
 
 # Install dependencies
 echo "Installing dependencies..."
