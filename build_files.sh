@@ -18,8 +18,8 @@ pip_cmd=$(command -v pip || command -v pip3)
 echo "Using pip command: $pip_cmd"
 
 # Install system-level dependencies
-apt-get update
-apt-get install -y libjpeg-dev
+FROM python:3.9-slim
+RUN apt-get update && apt-get install -y libjpeg-dev
 
 
 # Install dependencies
