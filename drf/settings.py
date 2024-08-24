@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '!)hg!lyuffgs6&)_42()1k0z+$)(8+z0wgxv&$cilgd8f8&2%c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['.vercel.app', '.now.sh','127.0.0.1','localhost']
 
@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['.vercel.app', '.now.sh','127.0.0.1','localhost']
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,13 +42,12 @@ INSTALLED_APPS = [
     'rest_framework',
     'knox',
     'django_rest_passwordreset',
-    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -89,18 +89,16 @@ WSGI_APPLICATION = 'drf.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'backend_api',
-        'USER': 'postgres',
-        'PASSWORD': '123546',
-        'HOST': 'localhost',  # Use 'localhost' if running PostgreSQL locally
-        'PORT': '5432',  # Default is '5432'
+        'NAME': 'postgres',
+        'USER': 'postgres.glhfgjxubulmpuvecvxd',
+        'PASSWORD': '8LJq9N-WR.p#Bnk',
+        'HOST': 'aws-0-ap-southeast-1.pooler.supabase.com',  # Use 'localhost' if running PostgreSQL locally
+        'PORT': '6543',  # Default is '5432'
         'OPTIONS': {
             'options': '-c timezone=UTC',
         },
     }
 }
-
-
 
 
 # Password validation
@@ -153,7 +151,9 @@ REST_FRAMEWORK = {
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build')
+
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",  # Your React frontend URL
+    'http://localhost:3000',  # Example for local development
+    'https://react-practice-7kyn.vercel.app',
 ]
