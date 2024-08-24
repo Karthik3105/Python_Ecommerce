@@ -17,6 +17,10 @@ fi
 pip_cmd=$(command -v pip || command -v pip3)
 echo "Using pip command: $pip_cmd"
 
+# Install system-level dependencies
+sudo apt-get update
+sudo apt-get install -y libjpeg-dev
+
 # Install dependencies
 echo "Installing dependencies..."
 $pip_cmd install -r requirements.txt || { echo "Dependency installation failed"; exit 1; }
