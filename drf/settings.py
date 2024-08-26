@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
+    'cloudinary',
     'accounts',
     'rest_framework',
     'knox',
@@ -157,3 +159,14 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',  # Example for local development
     'https://react-practice-7kyn.vercel.app',
 ]
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dkfdnydny',
+    'API_KEY': '272257671498636',
+    'API_SECRET': 'gVva6VDCn3EN_5f7c2141txD4Us'
+}
+# MEDIA_URL = '/media/'  # or any prefix you choose
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+
+
