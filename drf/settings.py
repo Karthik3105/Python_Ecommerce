@@ -152,14 +152,6 @@ REST_FRAMEWORK = {
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build')
-
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',  # Example for local development
-    'https://react-practice-7kyn.vercel.app',
-]
-
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': 'dkfdnydny',
     'API_KEY': '272257671498636',
@@ -167,6 +159,18 @@ CLOUDINARY_STORAGE = {
 }
 # MEDIA_URL = '/media/'  # or any prefix you choose
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build')  # This should match the output directory specified in Vercel
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),  # Your custom static files location
+]
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',  # Example for local development
+    'https://react-practice-7kyn.vercel.app',
+]
+
+
 
 
 
