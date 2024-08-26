@@ -40,7 +40,7 @@ class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products')
     product_name = models.CharField(max_length=100)
     product_details = models.TextField()
-    product_image = models.ImageField(upload_to='products/')
+    product_image = models.ImageField(upload_to='image')
     created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     created_on = models.DateTimeField(auto_now_add=True)
     
