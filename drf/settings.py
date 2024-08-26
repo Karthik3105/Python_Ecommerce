@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import cloudinary
-import cloudinary.uploader
+import cloudinary_storage
 import cloudinary.api
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -159,7 +159,8 @@ CLOUDINARY_STORAGE = {
     'API_KEY': '272257671498636',
     'API_SECRET': 'gVva6VDCn3EN_5f7c2141txD4Us'
 }
-# MEDIA_URL = '/media/'  # or any prefix you choose
+MEDIA_URL = '/media/'  # or any prefix you choose
+MEDIA_ROOT = os.path.join(BASE_DIR,"media")
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build')  # This should match the output directory specified in Vercel
