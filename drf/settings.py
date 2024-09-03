@@ -170,7 +170,7 @@ STATICFILES_DIRS = [
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',  # Example for local development
-    'https://react-practice-one-green.vercel.app/',
+    'https://react-practice-one-green.vercel.app',
 ]
 
 
