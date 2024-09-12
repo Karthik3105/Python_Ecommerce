@@ -20,7 +20,7 @@ class ProductAdmin(admin.ModelAdmin):
         'product_details', 'product_image', 'created_by', 'created_on'
     )
     # Optional: Add search and filter capabilities
-    # list_editable = ('category','product_name', 'product_details')
+    list_editable = ('category','product_name', 'product_details','product_image')
     search_fields = ('product_name', 'category__category_code')
     list_filter = ('created_on', 'category')
 
