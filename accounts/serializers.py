@@ -47,11 +47,14 @@ class CategorySerializer(serializers.ModelSerializer):
 
 class ProductSerializer(serializers.ModelSerializer):
     category = serializers.PrimaryKeyRelatedField(queryset=Category.objects.all())
+    category_code = serializers.SerializerMethodField()
     # category_code = serializers.CharField(source='category.category_code', read_only=True)
 
     class Meta:
         model = Product
-        fields = ['product_id', 'category', 'category_id', 'product_name', 'product_details', 'product_image', 'created_by', 'created_on']
+        fields = ['product_id', 'category','category_code', 'category_id', 'product_name', 'product_details', 'product_image', 'created_by', 'created_on']
+    def get_category_code(self, obj):
+        return obj.category.category_code
 def create(self, validated_data):
         # You can optionally include additional logic here if needed
         return super().create(validated_data)
