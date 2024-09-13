@@ -52,7 +52,7 @@ class ProductSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Product
-        fields = ['product_id', 'category','category_code', 'category_id', 'product_name', 'product_details', 'product_image', 'created_by', 'created_on']
+        fields = ['product_id', 'category','category_code', 'category_id', 'product_name', 'product_details','product_description','actual_price','discounted_price', 'product_image', 'created_by', 'created_on']
     def get_category_code(self, obj):
         return obj.category.category_code
 def create(self, validated_data):

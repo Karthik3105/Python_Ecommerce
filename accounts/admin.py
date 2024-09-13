@@ -17,10 +17,10 @@ class ProductAdmin(admin.ModelAdmin):
     # Specify the fields to display in the admin list view
     list_display = (
         'product_id', 'category', 'category_id', 'product_name', 
-        'product_details', 'product_image', 'created_by', 'created_on'
+        'product_details','product_description','actual_price','discounted_price', 'product_image', 'created_by', 'created_on'
     )
     # Optional: Add search and filter capabilities
-    list_editable = ('category','product_name', 'product_details','product_image')
+    list_editable = ('category','product_name', 'product_details','product_description','actual_price','discounted_price','product_image')
     search_fields = ('product_name', 'category__category_code')
     list_filter = ('created_on', 'category')
 
